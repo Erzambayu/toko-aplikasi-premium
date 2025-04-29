@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Toko Aplikasi Premium - Jual Aplikasi Premium Terpercaya</title>
+  <meta name="title" content="Toko Aplikasi Premium - Jual Aplikasi Premium Terpercaya">
+  <meta name="description" content="Toko Aplikasi Premium menyediakan berbagai aplikasi premium dengan harga terjangkau. Pembayaran mudah via QRIS dan transfer bank. Proses cepat dan terpercaya.">
+  <meta name="keywords" content="aplikasi premium, jual aplikasi, software premium, toko aplikasi, aplikasi murah">
+  <meta name="author" content="Erzam Cell">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erzambayu.github.io/toko-aplikasi-premium/">
+  <meta property="og:title" content="Toko Aplikasi Premium - Jual Aplikasi Premium Terpercaya">
+  <meta property="og:description" content="Toko Aplikasi Premium menyediakan berbagai aplikasi premium dengan harga terjangkau. Pembayaran mudah via QRIS dan transfer bank. Proses cepat dan terpercaya.">
+  <meta property="og:image" content="https://i.ibb.co/YXVdz2v/qris-erzam.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://erzambayu.github.io/toko-aplikasi-premium/">
+  <meta property="twitter:title" content="Toko Aplikasi Premium - Jual Aplikasi Premium Terpercaya">
+  <meta property="twitter:description" content="Toko Aplikasi Premium menyediakan berbagai aplikasi premium dengan harga terjangkau. Pembayaran mudah via QRIS dan transfer bank. Proses cepat dan terpercaya.">
+  <meta property="twitter:image" content="https://i.ibb.co/YXVdz2v/qris-erzam.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVFhH7ZZNSwJRGIXnB/QDWrSoVdC2RdC2VUGrWhREUETQLqJFQUSLpEWLMIIKIqKFQdEmisKgqEVBUYQVmUhkhR8N9qEV2Md7h0HH8aPSuTNE88CDOnde5zwwzh0dvWrVqtV/lhZYBuPABMbBDJgEE8AKRkE/0Mj9gdSgFeyAR/AN3oAfZHkHD+AcHIB1sAjmgRsMggGgkn8HqcEsOAE5IErwCR7BCYhyHoEYuAIX4BQcgh2wBWLAD9aBB7jAFFBUKkEbWAEPQBSQAXEQBkHgAy7u3cABbGAYGEE30EsdQAeWwC0QN78BUXAOQmAPbPL3OveHwCDoBR1AK3UAA9gEGSBuvgdCwMu5G0wDG+dGYAJq+QOoQQe3p0Dcex8sg0kw/sMkGAMm0AXapQ6gBhY+cxaIwu7AJtjnPvDLBNzmvhvYQT9QSx1ADTRgHiSBKCwJjoCP8wDnB8ADPJz7gB1YQQ9QSR1ADVrAGEgAUVgChHkaBnkf4zwM5oADWPjpO4Fa6gDSJRqBB9wBUZSQAUm+jkuQ5T0vIAUewSOQO0S1atWq9U/q6PgEAUaJASR9GZ8AAAAASUVORK5CYII=">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyDS9e-e9A6_K8t4hJhEGJqF_521DuNoSHg",
+      authDomain: "toko-aplikasi-premium-ca01f.firebaseapp.com",
+      databaseURL: "https://toko-aplikasi-premium-ca01f-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "toko-aplikasi-premium-ca01f",
+      storageBucket: "toko-aplikasi-premium-ca01f.appspot.com",
+      messagingSenderId: "165726110913",
+      appId: "1:165726110913:web:1958455e586cfb52970040",
+      measurementId: "G-1M1DDH55R0"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+<body>
+  <header role="banner">
+    <div class="header-content">
+      <h1>Toko Aplikasi Premium</h1>
+      <nav role="navigation" class="header-buttons">
+        <button id="themeToggle" class="theme-toggle header-btn" aria-label="Toggle dark mode">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+          Dark Mode
+        </button>
+        <button id="historyBtn" class="history-btn header-btn" aria-label="View purchase history">
+          <i class="fas fa-history" aria-hidden="true"></i>
+          Riwayat
+        </button>
+        <button id="adminBtn" class="header-btn" aria-label="Open admin panel">
+          <i class="fas fa-user-shield" aria-hidden="true"></i>
+          Admin Panel
+        </button>
+      </nav>
+    </div>
+  </header>
+  
+  <main role="main">
+    <section id="catalog" class="catalog" aria-label="Product catalog"></section>
+  </main>
+  
+  <!-- Admin Panel Modal -->
+  <div id="adminPanel" class="modal" role="dialog" aria-labelledby="adminPanelTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="closeAdmin" aria-label="Close admin panel">&times;</button>
+      <h2 id="adminPanelTitle">Tambah/Edit Produk</h2>
+      <form id="productForm" role="form">
+        <input type="hidden" id="editIndex">
+        <div class="form-group">
+          <label for="appName">Nama Aplikasi:</label>
+          <input type="text" id="appName" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="appDesc">Deskripsi:</label>
+          <textarea id="appDesc" required aria-required="true"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="appStock">Stok:</label>
+          <input type="number" id="appStock" min="0" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="appPrice">Harga:</label>
+          <input type="number" id="appPrice" min="0" required aria-required="true">
+        </div>
+        <div class="form-group">
+          <label for="appImg">Link Gambar:</label>
+          <input type="text" id="appImg" required aria-required="true">
+        </div>
+        <button type="submit">Simpan</button>
+      </form>
+      <h3>Daftar Produk</h3>
+      <ul id="productList" role="list" aria-label="Product list"></ul>
+    </div>
+  </div>
+  
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal" role="dialog" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <div class="modal-content">
+      <button class="close" id="closeCheckout" aria-label="Close checkout">&times;</button>
+      <h2 id="checkoutTitle">Checkout</h2>
+      
+      <!-- Ringkasan Produk -->
+      <div class="product-summary" role="region" aria-label="Product summary">
+        <img id="checkout-product-image" class="product-image" src="" alt="Product Image">
+        <div class="product-info">
+          <h3 id="checkout-product-name"></h3>
+          <p id="checkout-product-desc"></p>
+          <div class="price" id="checkout-product-price" aria-label="Product price"></div>
+          <div class="stock-info" id="checkout-product-stock" aria-label="Stock information"></div>
+        </div>
+      </div>
+      
+      <!-- Form Checkout -->
+      <form id="checkoutForm" role="form">
+        <input type="hidden" id="checkout-product-id">
+        
+        <!-- Jumlah Produk -->
+        <div class="form-group">
+          <label for="quantity">Jumlah:</label>
+          <div class="quantity-control" role="spinbutton" aria-label="Product quantity">
+            <button type="button" id="decreaseQuantity" aria-label="Decrease quantity">-</button>
+            <input type="number" id="quantity" min="1" value="1" required aria-required="true">
+            <button type="button" id="increaseQuantity" aria-label="Increase quantity">+</button>
+          </div>
+          <div class="total-price" aria-live="polite">
+            Total: <span id="checkout-total-price"></span>
+          </div>
+        </div>
+        
+        <!-- Catatan -->
+        <div class="form-group">
+          <label for="notes">Catatan (opsional):</label>
+          <textarea id="notes" placeholder="Tambahkan catatan untuk penjual..."></textarea>
+        </div>
+        
+        <!-- Metode Pembayaran -->
+        <fieldset class="form-group">
+          <legend>Metode Pembayaran:</legend>
+          <div class="payment-methods" role="radiogroup" aria-label="Payment methods">
+            <div class="payment-method">
+              <input type="radio" id="payment-qris" name="payment-method" value="QRIS" checked>
+              <label for="payment-qris" class="payment-label">
+                <img src="https://images.seeklogo.com/logo-png/39/1/quick-response-code-indonesia-standard-qris-logo-png_seeklogo-391791.png" alt="QRIS logo">
+                <span>QRIS</span>
+              </label>
+            </div>
+            <div class="payment-method">
+              <input type="radio" id="payment-bca" name="payment-method" value="BCA">
+              <label for="payment-bca" class="payment-label">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" alt="BCA logo">
+                <span>Bank BCA</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        
+        <!-- Informasi Pembayaran -->
+        <div class="form-group payment-info" id="qris-info" role="region" aria-label="QRIS payment information">
+          <h3>Informasi Pembayaran QRIS</h3>
+          <div class="payment-qr-container">
+            <img src="https://github.com/Erzambayu/toko-aplikasi-premium/blob/main/Screenshot%202025-04-26%20124935.png?raw=true" alt="QRIS code for payment" class="payment-qr">
+            <p>NMID: ID1024361357196</p>
+            <p>Scan QR code di atas menggunakan aplikasi e-wallet atau mobile banking Anda</p>
+          </div>
+        </div>
+        
+        <div class="form-group payment-info" id="bca-info" style="display: none;" role="region" aria-label="BCA payment information">
+          <h3>Informasi Rekening BCA</h3>
+          <div class="bank-account-info">
+            <div class="account-number-container">
+              <p class="account-label">Nomor Rekening:</p>
+              <div class="copy-container">
+                <span id="account-number">0030941667</span>
+                <button type="button" id="copy-account" class="copy-btn" aria-label="Copy account number">
+                  <i class="fas fa-copy" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+            <p>Atas Nama: Erzam Bayu L</p>
+          </div>
+        </div>
+        
+        <!-- Tombol Submit -->
+        <div class="form-buttons">
+          <button type="button" class="cancel-btn" id="cancelCheckout">Batal</button>
+          <button type="submit" class="whatsapp-btn">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Lanjut ke WhatsApp
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer role="contentinfo">
+    <p>&copy; 2024 Toko Aplikasi Premium. All rights reserved.</p>
+  </footer>
+
+  <!-- Make functions available globally -->
+  <script>
+    window.buyProduct = function(productId) {
+      // Implementation will be in script.js
+      console.log('Buy product:', productId);
+    };
+  </script>
+  
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>
