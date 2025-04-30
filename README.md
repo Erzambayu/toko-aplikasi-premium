@@ -27,6 +27,118 @@ Aplikasi web untuk toko aplikasi premium dengan fitur admin panel dan sistem pem
 - Firebase Storage
 - Firebase Analytics
 
+## 🔥 Konfigurasi Firebase
+
+### Langkah-langkah Setup Firebase
+
+1. **Buat Proyek Firebase**
+   - Buka [Firebase Console](https://console.firebase.google.com/)
+   - Klik "Add project"
+   - Masukkan nama proyek (contoh: "toko-aplikasi-premium")
+   - Ikuti langkah-langkah setup proyek
+
+2. **Tambahkan Firebase ke Web App**
+   - Di Firebase Console, pilih proyek Anda
+   - Klik ikon web (</>)
+   - Daftarkan aplikasi dengan nama yang diinginkan
+   - Salin konfigurasi Firebase yang diberikan
+
+3. **Konfigurasi di Aplikasi**
+   - Buka file `index.html`
+   - Tambahkan script Firebase di bagian `<head>`:
+   ```html
+   <!-- Firebase SDK -->
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+   ```
+
+4. **Inisialisasi Firebase**
+   - Tambahkan kode inisialisasi di `index.html`:
+   ```javascript
+   const firebaseConfig = {
+     apiKey: "YOUR_API_KEY",
+     authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+     databaseURL: "https://YOUR_PROJECT_ID.firebasedatabase.app",
+     projectId: "YOUR_PROJECT_ID",
+     storageBucket: "YOUR_PROJECT_ID.appspot.com",
+     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+     appId: "YOUR_APP_ID",
+     measurementId: "YOUR_MEASUREMENT_ID"
+   };
+
+   // Initialize Firebase
+   firebase.initializeApp(firebaseConfig);
+   firebase.analytics();
+   ```
+
+5. **Setup Authentication**
+   - Di Firebase Console, buka Authentication
+   - Aktifkan metode login Email/Password
+   - Tambahkan admin user:
+     ```javascript
+     firebase.auth().createUserWithEmailAndPassword('admin@email.com', 'password')
+       .then((userCredential) => {
+         console.log('Admin user created');
+       })
+       .catch((error) => {
+         console.error('Error creating admin:', error);
+       });
+     ```
+
+6. **Setup Database Rules**
+   - Di Firebase Console, buka Realtime Database
+   - Tambahkan rules berikut:
+   ```json
+   {
+     "rules": {
+       ".read": true,
+       "products": {
+         ".write": "auth != null && auth.token.email == 'admin@email.com'"
+       },
+       "purchases": {
+         ".write": true,
+         ".read": "auth != null"
+       }
+     }
+   }
+   ```
+
+### Struktur Database
+
+```json
+{
+  "products": {
+    "productId": {
+      "name": "Nama Produk",
+      "desc": "Deskripsi Produk",
+      "price": 100000,
+      "stock": 10,
+      "img": "URL_Gambar",
+      "rating": 4.5,
+      "reviews": {
+        "userId": {
+          "rating": 5,
+          "comment": "Komentar review"
+        }
+      }
+    }
+  },
+  "purchases": {
+    "purchaseId": {
+      "userId": "user123",
+      "productId": "product123",
+      "quantity": 1,
+      "totalPrice": 100000,
+      "paymentMethod": "QRIS",
+      "status": "pending",
+      "timestamp": 1234567890
+    }
+  }
+}
+```
+
 ## 📁 Struktur Proyek
 
 ```
