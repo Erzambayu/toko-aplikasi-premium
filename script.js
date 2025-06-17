@@ -1,3 +1,10 @@
+// Redirect dari erzambayu.me ke erzambayu.com
+if (location.hostname === "erzambayu.me") {
+  const path = location.pathname;
+  const fullURL = "https://erzambayu.com" + path;
+  window.location.replace(fullURL);
+}
+
 // Combined JavaScript file with all functionality
 
 // Debugging info
