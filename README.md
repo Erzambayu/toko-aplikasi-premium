@@ -144,7 +144,7 @@ Aplikasi web untuk toko aplikasi premium dengan fitur admin panel dan sistem pem
 ```
 toko-aplikasi-premium/
 ├── index.html          # File HTML utama
-├── style.css          # File CSS dengan styling    
+├── style.css          # File CSS dengan styling
 ├── script.js          # File JavaScript dengan logika aplikasi
 └── README.md          # Dokumentasi proyek
 ```
