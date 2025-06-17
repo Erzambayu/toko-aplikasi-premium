@@ -1,0 +1,1621 @@
+/* Combined CSS file with all styles and mobile improvements */
+
+:root {
+  /* Light theme variables */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --card-border: #e0e0e0;
+  --button-bg: #4CAF50;
+  --button-bg-hover: #45a049;
+  --button-text: #ffffff;
+  --modal-bg: #ffffff;
+  --modal-overlay: rgba(0, 0, 0, 0.5);
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --header-bg: #ffffff;
+  --header-text: #333333;
+  --form-text: #333333;
+  --form-label: #555555;
+  --product-list-bg: #f5f5f5;
+  --product-list-text: #333333;
+  --stock-color: #ff9800;
+  --modal-title: #333333;
+  --history-item-bg: #f5f5f5;
+  --history-text: #333333;
+  --history-date: #666666;
+  --payment-section-bg: #f5f5f5;
+  --payment-text: #333333;
+  --whatsapp-btn-bg: #25D366;
+  --whatsapp-btn-text: #FFFFFF;
+  --whatsapp-btn-hover: #128C7E;
+  --copy-btn-bg: #f0f0f0;
+  --copy-btn-hover: #e0e0e0;
+  --copy-btn-text: #333333;
+  --account-info-bg: #f9f9f9;
+  --success-color: #4CAF50;
+  --error-color: #f44336;
+  --primary-color: #4CAF50;
+}
+
+[data-theme="dark"] {
+  --bg-color: #181818;
+  --text-color: #ffffff;
+  --card-bg: #232323;
+  --card-border: #404040;
+  --button-bg: #45a049;
+  --button-text: #ffffff;
+  --modal-bg: #232323;
+  --modal-overlay: rgba(0, 0, 0, 0.7);
+  --input-bg: #333333;
+  --input-border: #505050;
+  --header-bg: #121212;
+  --header-text: #ffffff;
+  --form-text: #ffffff;
+  --form-label: #dddddd;
+  --product-list-bg: #292929;
+  --product-list-text: #ffffff;
+  --stock-color: #ffb300;
+  --modal-title: #ffffff;
+  --history-item-bg: #292929;
+  --history-text: #ffffff;
+  --history-date: #bbbbbb;
+  --payment-section-bg: #292929;
+  --payment-text: #ffffff;
+  --whatsapp-btn-bg: #25D366;
+  --whatsapp-btn-text: #FFFFFF;
+  --whatsapp-btn-hover: #128C7E;
+  --copy-btn-bg: #333333;
+  --copy-btn-hover: #444444;
+  --copy-btn-text: #ffffff;
+  --account-info-bg: #2a2a2a;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  padding-top: 0;
+}
+
+header {
+  position: relative;
+  background: var(--header-bg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 8px 0;
+  width: 100%;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 0 15px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.header-content h1 {
+  color: var(--header-text);
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.header-btn {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: none;
+}
+
+.header-btn:hover {
+  background: var(--button-bg-hover);
+  transform: translateY(-1px);
+}
+
+.header-btn i {
+  font-size: 1rem;
+}
+
+#logoutBtn {
+  background: #ff4444;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+#logoutBtn:hover {
+  background: #ff6666;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+}
+
+.catalog {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 0;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-header {
+  padding: 20px 20px 15px;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 0;
+}
+
+.card-header::before,
+.card-header::after {
+  display: none;
+}
+
+.favorite-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 0;
+  margin: 0;
+  background: transparent !important;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  line-height: 1;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-btn i {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+}
+
+.favorite-btn:hover i {
+  color: #ff4444;
+  transform: scale(1.1);
+}
+
+.favorite-btn.active i {
+  color: #ff4444;
+}
+
+.card-content {
+  padding: 15px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card > *,
+.card-header > * {
+  background: transparent !important;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin: 0;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+.card .stock {
+  font-size: 0.9rem;
+  color: var(--stock-color);
+  margin: 0;
+  font-weight: 500;
+}
+
+.card .price {
+  font-size: 1.4rem;
+  color: #4CAF50;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card button {
+  background-color: #25D366;
+  border: none;
+  padding: 14px;
+  border-radius: 8px 8px 16px 16px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: auto;
+  box-shadow: 0 2px 4px rgba(37, 211, 102, 0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Light mode styles */
+[data-theme="light"] .card button {
+  color: #000000;
+}
+
+[data-theme="light"] .card button i {
+  color: #000000;
+}
+
+/* Dark mode styles */
+[data-theme="dark"] .card button {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .card button i {
+  color: #FFFFFF;
+}
+
+.card button:not(:disabled):hover {
+  background-color: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);
+}
+
+[data-theme="light"] .card button:not(:disabled):hover {
+  color: #000000;
+}
+
+[data-theme="dark"] .card button:not(:disabled):hover {
+  color: #FFFFFF;
+}
+
+.card button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: none;
+}
+
+[data-theme="light"] .card button:disabled {
+  color: rgba(0,0,0,0.5);
+}
+
+[data-theme="dark"] .card button:disabled {
+  color: rgba(255,255,255,0.5);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-overlay);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.show {
+  opacity: 1;
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  margin: 80px auto 20px;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  color: var(--text-color);
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  color: var(--modal-title);
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.modal-content .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.modal-content label {
+  color: var(--form-label);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--form-text);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.modal-content textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.modal-content button[type="submit"] {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-content button[type="submit"]:hover {
+  background: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #e0e0e0;
+  border-radius: 50%;
+  font-size: 24px;
+  line-height: 32px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  transition: all 0.3s ease;
+}
+
+.close:hover {
+  background: #d32f2f;
+  color: white;
+}
+
+#productList {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+#productList li {
+  background: var(--product-list-bg);
+  color: var(--text-color);
+  margin: 8px 0;
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#productList li span {
+  color: var(--text-color);
+}
+
+#productList li button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 8px;
+  transition: all 0.2s ease;
+}
+
+#productList li button:hover {
+  background: var(--button-bg-hover);
+  transform: translateY(-1px);
+}
+
+#productList li button.hapus-btn {
+  background: #dc3545;
+}
+
+#productList li button.hapus-btn:hover {
+  background: #c82333;
+}
+
+#productList li button.edit-btn {
+  background: #0d6efd;
+}
+
+#productList li button.edit-btn:hover {
+  background: #0b5ed7;
+}
+
+.modal-content button[type="submit"],
+.modal-content .simpan-btn {
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 20px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.modal-content button[type="submit"]:hover,
+.modal-content .simpan-btn:hover {
+  background: var(--button-bg-hover);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar styling for modal content and product list */
+.modal-content::-webkit-scrollbar,
+#productList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content::-webkit-scrollbar-track,
+#productList::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb,
+#productList::-webkit-scrollbar-thumb {
+  background: var(--button-bg);
+  border-radius: 4px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover,
+#productList::-webkit-scrollbar-thumb:hover {
+  background: var(--button-bg-hover);
+}
+
+/* Button group in product list */
+.button-group {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+/* Fix dark mode text colors */
+[data-theme="dark"] .modal-content input,
+[data-theme="dark"] .modal-content textarea {
+  color: #FFFFFF;
+  background: var(--input-bg);
+}
+
+[data-theme="dark"] .modal-content label,
+[data-theme="dark"] .modal-content h2,
+[data-theme="dark"] #productList li {
+  color: #FFFFFF;
+}
+
+.session-timer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+  z-index: 1000;
+  display: none;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.form-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.form-buttons button {
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  min-width: 120px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 200px;
+}
+
+.form-buttons button[type="submit"] {
+  background: #ffb300;
+  color: #333;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background: #ffc107;
+  transform: translateY(-2px);
+}
+
+.cancel-btn,
+.modal .cancel-btn {
+  background-color: #757575;
+  color: white;
+  border: none;
+}
+
+.cancel-btn:hover,
+.modal .cancel-btn:hover {
+  background-color: #616161;
+  transform: translateY(-1px);
+}
+
+.cancel-btn:active,
+.modal .cancel-btn:active {
+  transform: translateY(0);
+}
+
+/* Memperbaiki tampilan tombol di form */
+.modal form button[type="submit"],
+.modal .whatsapp-btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+}
+
+.modal form button[type="submit"]:hover,
+.modal .whatsapp-btn:hover {
+  background-color: #128C7E;
+  transform: translateY(-1px);
+}
+
+.modal form button[type="submit"]:active,
+.modal .whatsapp-btn:active {
+  transform: translateY(0);
+}
+
+/* Konsistensi tombol di modal */
+.modal button {
+  font-family: inherit;
+}
+
+/* Mobile responsiveness for buttons */
+@media (max-width: 480px) {
+  .form-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .form-buttons button {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+#loginForm {
+  position: relative;
+  padding: 20px 0;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#loginForm .form-group {
+  margin-bottom: 20px;
+}
+
+#loginForm label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--form-label);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+#loginForm input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--form-text);
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+#loginForm input:focus {
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  outline: none;
+}
+
+#loginError {
+  margin: 15px 0;
+  padding: 12px;
+  border-radius: 6px;
+  background: rgba(255, 68, 68, 0.1);
+  border: 1px solid rgba(255, 68, 68, 0.3);
+  color: #ff4444;
+  font-size: 14px;
+  display: none;
+}
+
+#loginError:not(:empty) {
+  display: block;
+}
+
+/* Login form buttons */
+#loginForm .form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+#loginForm .form-buttons button {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  max-width: none;
+}
+
+#loginForm .form-buttons button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#loginForm .form-buttons button[type="submit"]:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+}
+
+#loginForm .form-buttons .cancel-btn {
+  background-color: #757575;
+  color: white;
+}
+
+#loginForm .form-buttons .cancel-btn:hover {
+  background-color: #616161;
+  transform: translateY(-1px);
+}
+
+/* Mobile responsiveness for login form */
+@media (max-width: 480px) {
+  #loginForm {
+    padding: 15px;
+  }
+
+  #loginForm .form-buttons {
+    flex-direction: column;
+  }
+
+  #loginForm .form-buttons button {
+    width: 100%;
+  }
+}
+
+/* Checkout Modal Styles */
+.product-summary {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: var(--payment-section-bg);
+  border-radius: 8px;
+}
+
+.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h3 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+}
+
+.product-info p {
+  margin: 0 0 10px 0;
+  color: var(--text-color-secondary);
+  font-size: 0.9rem;
+}
+
+.product-info .price {
+  font-size: 1.1rem;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.stock-info {
+  font-size: 0.9rem;
+  color: var(--stock-color);
+  margin-top: 5px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  max-width: 120px;
+}
+
+.quantity-control button {
+  width: 36px;
+  height: 36px;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quantity-control button:hover {
+  background: var(--button-bg-hover);
+}
+
+.quantity-control input {
+  width: 50px;
+  height: 36px;
+  text-align: center;
+  margin: 0 8px;
+  padding: 0;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.total-price {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.payment-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.payment-method {
+  flex: 1;
+  min-width: 120px;
+}
+
+.payment-method input[type="radio"] {
+  display: none;
+}
+
+.payment-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-label img {
+  height: 40px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.payment-method input[type="radio"]:checked + .payment-label {
+  border-color: var(--button-bg);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.whatsapp-btn {
+  background-color: var(--whatsapp-btn-bg);
+  color: var(--whatsapp-btn-text);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.whatsapp-btn:hover {
+  background-color: var(--whatsapp-btn-hover);
+  transform: translateY(-2px);
+}
+
+.whatsapp-btn i {
+  font-size: 1.2rem;
+}
+
+/* Payment Information Styles */
+.payment-info {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  background: var(--payment-section-bg);
+}
+
+.payment-info h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.payment-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.payment-qr {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.bank-account-info {
+  background: var(--account-info-bg);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.account-number-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.account-label {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.copy-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--input-bg);
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--input-border);
+  flex: 1;
+}
+
+#account-number {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 1.1rem;
+}
+
+.copy-btn {
+  background: var(--copy-btn-bg);
+  color: var(--copy-btn-text);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: var(--copy-btn-hover);
+  transform: scale(1.05);
+}
+
+.copy-btn i {
+  font-size: 1rem;
+}
+
+.copy-success {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--success-color);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  z-index: 1100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.copy-success.show {
+  opacity: 1;
+}
+
+/* Error and Success Messages */
+.error-message {
+  background-color: var(--error-color);
+  color: white;
+  border: 1px solid var(--error-border-color);
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+.success-message {
+  background-color: var(--success-color);
+  color: white;
+  border: 1px solid var(--success-border-color);
+  padding: 10px 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+}
+
+/* Empty message */
+.empty-message {
+  text-align: center;
+  padding: 30px;
+  color: var(--text-color-secondary);
+  font-size: 1.1rem;
+}
+
+/* History styles */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.history-item {
+  background: var(--history-item-bg);
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.history-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--history-text);
+}
+
+.history-date {
+  font-size: 0.8rem;
+  color: var(--history-date);
+}
+
+.history-details {
+  font-size: 0.9rem;
+  color: var(--history-text);
+}
+
+.history-details p {
+  margin: 5px 0;
+}
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 768px) {
+  /* Adjust header for mobile */
+  body {
+    padding-top: 100px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 8px;
+  }
+
+  .header-buttons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .header-btn {
+    flex: 1;
+    min-width: 100px;
+    font-size: 0.85rem;
+    padding: 8px 10px;
+  }
+
+  /* Adjust modal content for mobile */
+  .modal-content {
+    width: 95%;
+    max-width: none;
+    margin: 60px auto 15px;
+    padding: 15px;
+  }
+
+  /* Adjust product cards for mobile */
+  .catalog {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.85rem;
+  }
+
+  .card .price {
+    font-size: 1.2rem;
+  }
+
+  .card button {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Specific checkout form mobile improvements */
+@media (max-width: 480px) {
+  /* Make checkout form more compact */
+  body {
+    padding-top: 120px;
+  }
+
+  .modal-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .modal-content .form-group {
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  /* Adjust product summary for mobile */
+  .product-summary {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .product-image {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  /* Center quantity controls on mobile */
+  .quantity-control {
+    margin: 0 auto;
+  }
+
+  /* Make payment methods stack vertically */
+  .payment-methods {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .payment-method {
+    width: 100%;
+  }
+
+  /* Adjust payment info sections */
+  .payment-info {
+    padding: 10px;
+  }
+
+  .payment-info h3 {
+    font-size: 1rem;
+  }
+
+  /* Make QRIS image smaller on mobile */
+  .payment-qr {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Improve bank account info display */
+  .bank-account-info {
+    padding: 10px;
+  }
+
+  .account-number-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .copy-container {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #account-number {
+    font-size: 1rem;
+  }
+
+  /* Make buttons more touch-friendly */
+  .copy-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-buttons button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+  button, 
+  .copy-btn,
+  .payment-label,
+  .close {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .close {
+    top: 5px;
+    right: 10px;
+  }
+
+  /* Ensure form inputs are large enough for touch */
+  input, 
+  textarea, 
+  select {
+    font-size: 16px !important; /* Prevent iOS zoom on focus */
+    min-height: 44px;
+  }
+
+  /* Improve scrolling experience */
+  .modal-content {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .modal-content {
+    padding: 10px;
+  }
+
+  .product-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .payment-qr {
+    width: 120px;
+    height: 120px;
+  }
+
+  .header-btn {
+    font-size: 0.8rem;
+    padding: 8px 5px;
+  }
+}
+
+/* Landscape orientation improvements */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding-top: 50px;
+  }
+
+  .header-content {
+    flex-direction: row;
+  }
+
+  .modal-content {
+    margin-top: 50px;
+    max-height: 80vh;
+  }
+
+  .product-summary {
+    flex-direction: row;
+  }
+}
+
+/* Copy button active state */
+.copy-btn.active {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 5px 5px 0 0;
+  position: relative;
+}
+
+.admin-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.admin-header .admin-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-btn {
+  background: #ff4444;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 0;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 1;
+}
+
+.logout-btn:hover {
+  background: #ff6666;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 68, 68, 0.3);
+}
+
+#adminPanel .close {
+  position: static;
+  margin-left: 10px;
+  background: #e0e0e0;
+  color: #666;
+  z-index: 2;
+}
+
+#adminPanel .close:hover {
+  background: #d32f2f;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 8px;
+  }
+  .admin-header .admin-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+/* Success and error messages */
+.success-message,
+.error-message {
+  padding: 10px 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  animation: fadeIn 0.3s ease;
+}
+
+.success-message {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.error-message {
+  background-color: var(--error-color);
+  color: white;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tambahan styling untuk admin panel agar lebih rapi */
+#adminPanel .admin-content {
+  background: var(--card-bg);
+  padding: 32px 24px 24px 24px;
+  border-radius: 0 0 12px 12px;
+  max-width: 420px;
+  margin: 0 auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+#adminPanel form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--modal-bg);
+  padding: 24px 18px 18px 18px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
+  margin-bottom: 24px;
+}
+
+#adminPanel .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+#adminPanel label {
+  font-weight: 500;
+  color: var(--form-label);
+  margin-bottom: 2px;
+}
+
+#adminPanel input,
+#adminPanel textarea {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--form-text);
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+#adminPanel input:focus,
+#adminPanel textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+#adminPanel .form-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+#adminPanel .form-buttons button {
+  min-width: 120px;
+  padding: 12px 0;
+  font-size: 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: none;
+}
+
+#adminPanel .form-buttons button[type="submit"] {
+  background: var(--success-color);
+  color: #fff;
+  border: none;
+}
+
+#adminPanel .form-buttons .cancel-btn {
+  background: #757575;
+  color: #fff;
+  border: none;
+}
+
+#adminPanel .form-buttons button[type="submit"]:hover {
+  background: #43a047;
+}
+
+#adminPanel .form-buttons .cancel-btn:hover {
+  background: #616161;
+}
+
+#adminPanel #productList {
+  margin-top: 24px;
+  background: var(--product-list-bg);
+  border-radius: 8px;
+  padding: 12px 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+@media (max-width: 600px) {
+  #adminPanel .admin-content {
+    padding: 12px 4px 12px 4px;
+    max-width: 100%;
+  }
+  #adminPanel form {
+    padding: 12px 4px 12px 4px;
+  }
+}
+
+/* Copyright/footer center alignment */
+footer, .footer, .copyright {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin: 24px 0 0 0;
+  color: var(--text-color);
+  font-size: 1rem;
+}
