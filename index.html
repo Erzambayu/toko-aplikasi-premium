@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Toko Aplikasi Premium — Jual Aplikasi Premium Terpercaya</title>
+  <meta name="title" content="Toko Aplikasi Premium — Jual Aplikasi Premium Terpercaya">
+  <meta name="description" content="Toko Aplikasi Premium menyediakan berbagai aplikasi premium dengan harga terjangkau. Pembayaran mudah via QRIS dan transfer bank. Proses cepat dan terpercaya.">
+  <meta name="keywords" content="aplikasi premium, jual aplikasi, software premium, toko aplikasi, aplikasi murah">
+  <meta name="author" content="Erzam Cell">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0f">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erzambayu.github.io/toko-aplikasi-premium/">
+  <meta property="og:title" content="Toko Aplikasi Premium — Jual Aplikasi Premium Terpercaya">
+  <meta property="og:description" content="Toko Aplikasi Premium menyediakan berbagai aplikasi premium dengan harga terjangkau. Pembayaran mudah via QRIS dan transfer bank.">
+  <meta property="og:image" content="https://i.ibb.co/YXVdz2v/qris-erzam.jpg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://erzambayu.github.io/toko-aplikasi-premium/">
+  <meta property="twitter:title" content="Toko Aplikasi Premium — Jual Aplikasi Premium Terpercaya">
+  <meta property="twitter:description" content="Toko Aplikasi Premium menyediakan berbagai aplikasi premium dengan harga terjangkau.">
+  <meta property="twitter:image" content="https://i.ibb.co/YXVdz2v/qris-erzam.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGwSURBVFhH7ZZNSwJRGIXnB/QDWrSoVdC2RdC2VUGrWhREUETQLqJFQUSLpEWLMIIKIqKFQdEmisKgqEVBUYQVmUhkhR8N9qEV2Md7h0HH8aPSuTNE88CDOnde5zwwzh0dvWrVqtV/lhZYBuPABMbBDJgEE8AKRkE/0Mj9gdSgFeyAR/AN3oAfZHkHD+AcHIB1sAjmgRsMggGgkn8HqcEsOAE5IErwCR7BCYhyHoEYuAIX4BQcgh2wBWLAD9aBB7jAFFBUKkEbWAEPQBSQAXEQBkHgAy7u3cABbGAYGEE30EsdQAeWwC0QN78BUXAOQmAPbPL3OveHwCDoBR1AK3UAA9gEGSBuvgdCwMu5G0wDG+dGYAJq+QOoQQe3p0Dcex8sg0kw/sMkGAMm0AXapQ6gBhY+cxaIwu7AJtjnPvDLBNzmvhvYQT9QSx1ADTRgHiSBKCwJjoCP8wDnB8ADPJz7gB1YQQ9QSR1ADVrAGEgAUVgChHkaBnkf4zwM5oADWPjpO4Fa6gDSJRqBB9wBUZSQAUm+jkuQ5T0vIAUewSOQO0S1atWq9U/q6PgEAUaJASR9GZ8AAAAASUVORK5CYII=">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+  <!-- Initialize Firebase -->
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDS9e-e9A6_K8t4hJhEGJqF_521DuNoSHg",
+      authDomain: "toko-aplikasi-premium-ca01f.firebaseapp.com",
+      databaseURL: "https://toko-aplikasi-premium-ca01f-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "toko-aplikasi-premium-ca01f",
+      storageBucket: "toko-aplikasi-premium-ca01f.appspot.com",
+      messagingSenderId: "165726110913",
+      appId: "1:165726110913:web:1958455e586cfb52970040",
+      measurementId: "G-1M1DDH55R0"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+<body>
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Header -->
+  <header role="banner">
+    <div class="header-content">
+      <div class="header-brand">
+        <div class="brand-icon">
+          <i class="fas fa-crown"></i>
+        </div>
+        <div class="brand-text">
+          <h1>Toko Aplikasi Premium</h1>
+          <span class="brand-tagline">Aplikasi Premium, Harga Terjangkau</span>
+        </div>
+      </div>
+      <nav role="navigation" class="header-actions">
+        <button id="themeToggle" class="header-btn btn-icon" aria-label="Toggle dark mode" title="Toggle Theme">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button id="historyBtn" class="header-btn btn-icon" aria-label="Riwayat pembelian" title="Riwayat">
+          <i class="fas fa-clock-rotate-left"></i>
+        </button>
+        <a href="admin.html" class="header-btn btn-icon" aria-label="Admin panel" title="Admin">
+          <i class="fas fa-shield-halved"></i>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero / Search Section -->
+  <section class="search-section">
+    <div class="search-container">
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Cari aplikasi premium..." autocomplete="off">
+        <button id="clearSearch" class="clear-search-btn" aria-label="Clear search" style="display:none;">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+      <div class="search-stats" id="searchStats"></div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main role="main">
+    <section id="catalog" class="catalog" aria-label="Product catalog"></section>
+    <div id="emptyState" class="empty-state" style="display:none;">
+      <i class="fas fa-box-open"></i>
+      <h3>Tidak ada produk ditemukan</h3>
+      <p>Coba kata kunci lain atau hapus filter pencarian</p>
+    </div>
+  </main>
+
+  <!-- Checkout Modal -->
+  <div id="checkoutModal" class="modal" role="dialog" aria-labelledby="checkoutTitle" aria-hidden="true">
+    <div class="modal-content modal-checkout">
+      <div class="modal-header">
+        <h2 id="checkoutTitle"><i class="fas fa-bag-shopping"></i> Checkout</h2>
+        <button class="modal-close" id="closeCheckout" aria-label="Close checkout">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Product Summary -->
+        <div class="checkout-product" role="region" aria-label="Product summary">
+          <img id="checkout-product-image" class="checkout-product-img" src="" alt="Product Image">
+          <div class="checkout-product-info">
+            <h3 id="checkout-product-name"></h3>
+            <p id="checkout-product-desc" class="checkout-product-desc"></p>
+            <div class="checkout-product-meta">
+              <span class="checkout-price" id="checkout-product-price" aria-label="Product price"></span>
+              <span class="checkout-stock" id="checkout-product-stock" aria-label="Stock information"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Checkout Form -->
+        <form id="checkoutForm" role="form">
+          <input type="hidden" id="checkout-product-id">
+          
+          <!-- Quantity -->
+          <div class="form-group">
+            <label for="quantity">Jumlah</label>
+            <div class="quantity-control" role="spinbutton" aria-label="Product quantity">
+              <button type="button" id="decreaseQuantity" aria-label="Decrease quantity">
+                <i class="fas fa-minus"></i>
+              </button>
+              <input type="number" id="quantity" min="1" value="1" required aria-required="true">
+              <button type="button" id="increaseQuantity" aria-label="Increase quantity">
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
+            <div class="total-price-display" aria-live="polite">
+              Total: <span id="checkout-total-price" class="total-price-value"></span>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="form-group">
+            <label for="notes">Catatan <span class="label-optional">(opsional)</span></label>
+            <textarea id="notes" placeholder="Tambahkan catatan untuk penjual..."></textarea>
+          </div>
+
+          <!-- Payment Methods -->
+          <fieldset class="form-group">
+            <legend>Metode Pembayaran</legend>
+            <div class="payment-methods" role="radiogroup" aria-label="Payment methods">
+              <div class="payment-option">
+                <input type="radio" id="payment-qris" name="payment-method" value="QRIS" checked>
+                <label for="payment-qris" class="payment-card">
+                  <img src="https://images.seeklogo.com/logo-png/39/1/quick-response-code-indonesia-standard-qris-logo-png_seeklogo-391791.png" alt="QRIS logo">
+                  <span>QRIS</span>
+                </label>
+              </div>
+              <div class="payment-option">
+                <input type="radio" id="payment-bca" name="payment-method" value="BCA">
+                <label for="payment-bca" class="payment-card">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/2560px-Bank_Central_Asia.svg.png" alt="BCA logo">
+                  <span>Bank BCA</span>
+                </label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- QRIS Info -->
+          <div class="payment-detail" id="qris-info" role="region" aria-label="QRIS payment information">
+            <h4><i class="fas fa-qrcode"></i> Scan QRIS</h4>
+            <div class="qris-container">
+              <img src="https://github.com/Erzambayu/toko-aplikasi-premium/blob/main/Screenshot%202025-04-26%20124935.png?raw=true" alt="QRIS code for payment" class="qris-image">
+              <p class="qris-nmid">NMID: ID1024361357196</p>
+              <p class="qris-hint">Scan QR code di atas menggunakan e-wallet atau mobile banking</p>
+            </div>
+          </div>
+
+          <!-- BCA Info -->
+          <div class="payment-detail" id="bca-info" style="display:none;" role="region" aria-label="BCA payment information">
+            <h4><i class="fas fa-building-columns"></i> Transfer BCA</h4>
+            <div class="bank-info">
+              <div class="bank-account">
+                <span class="bank-label">Nomor Rekening</span>
+                <div class="bank-number-row">
+                  <code id="account-number">0030941667</code>
+                  <button type="button" id="copy-account" class="btn-copy" aria-label="Copy account number">
+                    <i class="fas fa-copy"></i>
+                  </button>
+                </div>
+              </div>
+              <p class="bank-holder">a.n. <strong>Erzam Bayu L</strong></p>
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="form-actions">
+            <button type="button" class="btn btn-secondary" id="cancelCheckout">Batal</button>
+            <button type="submit" class="btn btn-whatsapp">
+              <i class="fab fa-whatsapp"></i> Lanjut ke WhatsApp
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Dialog -->
+  <div id="confirmDialog" class="modal modal-confirm" role="alertdialog" aria-hidden="true">
+    <div class="modal-content modal-sm">
+      <div class="confirm-icon"><i class="fas fa-triangle-exclamation"></i></div>
+      <h3 id="confirmTitle">Konfirmasi</h3>
+      <p id="confirmMessage"></p>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="confirmCancel">Batal</button>
+        <button type="button" class="btn btn-danger" id="confirmOk">Ya, Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation (Mobile) -->
+  <nav class="bottom-nav" id="bottomNav" role="navigation" aria-label="Mobile navigation">
+    <button class="bottom-nav-item active" data-target="home" aria-label="Home">
+      <i class="fas fa-home"></i>
+      <span>Home</span>
+    </button>
+    <button class="bottom-nav-item" data-target="search" aria-label="Search">
+      <i class="fas fa-search"></i>
+      <span>Cari</span>
+    </button>
+    <button class="bottom-nav-item" data-target="history" aria-label="History">
+      <i class="fas fa-clock-rotate-left"></i>
+      <span>Riwayat</span>
+    </button>
+    <a href="admin.html" class="bottom-nav-item" aria-label="Admin">
+      <i class="fas fa-shield-halved"></i>
+      <span>Admin</span>
+    </a>
+  </nav>
+
+  <footer role="contentinfo">
+    <p>&copy; 2025 Toko Aplikasi Premium. All rights reserved.</p>
+  </footer>
+
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <title>Admin Panel — Toko Aplikasi Premium</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Shared base + Admin CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-analytics.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDS9e-e9A6_K8t4hJhEGJqF_521DuNoSHg",
+      authDomain: "toko-aplikasi-premium-ca01f.firebaseapp.com",
+      databaseURL: "https://toko-aplikasi-premium-ca01f-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "toko-aplikasi-premium-ca01f",
+      storageBucket: "toko-aplikasi-premium-ca01f.appspot.com",
+      messagingSenderId: "165726110913",
+      appId: "1:165726110913:web:1958455e586cfb52970040",
+      measurementId: "G-1M1DDH55R0"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
+</head>
+<body>
+  <!-- Toast Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Login Screen (shown when not authenticated) -->
+  <div id="loginScreen" class="admin-login-screen">
+    <div class="login-card">
+      <div class="login-brand">
+        <div class="brand-icon"><i class="fas fa-crown"></i></div>
+        <h1>Admin Panel</h1>
+        <p>Toko Aplikasi Premium</p>
+      </div>
+      <form id="loginForm" autocomplete="off">
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <div class="input-icon-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="loginEmail" placeholder="admin@email.com" required autocomplete="username">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="loginPass">Password</label>
+          <div class="input-icon-wrapper">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="loginPass" placeholder="Password" required autocomplete="current-password">
+          </div>
+        </div>
+        <div id="loginError"></div>
+        <button type="submit" class="btn btn-primary btn-full">
+          <i class="fas fa-right-to-bracket"></i> Login
+        </button>
+      </form>
+      <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Kembali ke Toko</a>
+    </div>
+  </div>
+
+  <!-- Admin Dashboard (shown when authenticated) -->
+  <div id="adminDashboard" class="admin-dashboard" style="display:none;">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="adminSidebar">
+      <div class="sidebar-header">
+        <div class="brand-icon brand-icon-sm"><i class="fas fa-crown"></i></div>
+        <div class="sidebar-brand-text">
+          <span class="sidebar-title">Admin Panel</span>
+          <span class="sidebar-subtitle">Toko Aplikasi Premium</span>
+        </div>
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close sidebar">
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <button class="sidebar-item active" data-page="dashboard">
+          <i class="fas fa-chart-pie"></i> <span>Dashboard</span>
+        </button>
+        <button class="sidebar-item" data-page="products">
+          <i class="fas fa-box"></i> <span>Produk</span>
+        </button>
+        <button class="sidebar-item" data-page="add-product">
+          <i class="fas fa-plus-circle"></i> <span>Tambah Produk</span>
+        </button>
+      </nav>
+      <div class="sidebar-footer">
+        <a href="index.html" class="sidebar-item sidebar-link">
+          <i class="fas fa-store"></i> <span>Lihat Toko</span>
+        </a>
+        <button class="sidebar-item sidebar-logout" id="logoutBtn">
+          <i class="fas fa-right-from-bracket"></i> <span>Logout</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <button class="topbar-menu" id="sidebarToggle" aria-label="Toggle sidebar">
+          <i class="fas fa-bars"></i>
+        </button>
+        <h2 id="pageTitle">Dashboard</h2>
+        <div class="topbar-actions">
+          <button id="themeToggle" class="btn-icon" aria-label="Toggle theme" title="Toggle Theme">
+            <i class="fas fa-sun"></i>
+          </button>
+          <div class="topbar-user">
+            <i class="fas fa-user-shield"></i>
+            <span id="adminEmail">Admin</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Content -->
+      <div class="admin-content">
+
+        <!-- Dashboard Page -->
+        <section id="page-dashboard" class="admin-page active">
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-icon stat-blue"><i class="fas fa-box"></i></div>
+              <div class="stat-info">
+                <span class="stat-value" id="statTotalProducts">0</span>
+                <span class="stat-label">Total Produk</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon stat-green"><i class="fas fa-check-circle"></i></div>
+              <div class="stat-info">
+                <span class="stat-value" id="statInStock">0</span>
+                <span class="stat-label">Stok Tersedia</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon stat-red"><i class="fas fa-exclamation-circle"></i></div>
+              <div class="stat-info">
+                <span class="stat-value" id="statOutOfStock">0</span>
+                <span class="stat-label">Stok Habis</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon stat-gold"><i class="fas fa-coins"></i></div>
+              <div class="stat-info">
+                <span class="stat-value" id="statTotalValue">Rp 0</span>
+                <span class="stat-label">Total Nilai Stok</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-section">
+            <h3><i class="fas fa-clock"></i> Produk Terbaru</h3>
+            <div class="recent-products" id="recentProducts">
+              <p class="text-muted">Memuat...</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Products Page -->
+        <section id="page-products" class="admin-page">
+          <div class="page-toolbar">
+            <div class="search-wrapper search-wrapper-sm">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" id="adminSearchInput" placeholder="Cari produk..." autocomplete="off">
+            </div>
+            <button class="btn btn-primary" id="goToAddProduct">
+              <i class="fas fa-plus"></i> Tambah Produk
+            </button>
+          </div>
+          <div class="products-table-wrapper">
+            <table class="products-table" id="productsTable">
+              <thead>
+                <tr>
+                  <th>Gambar</th>
+                  <th>Nama Produk</th>
+                  <th>Harga</th>
+                  <th>Stok</th>
+                  <th>Aksi</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+              </tbody>
+            </table>
+            <div id="productsEmpty" class="table-empty" style="display:none;">
+              <i class="fas fa-box-open"></i>
+              <p>Belum ada produk</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Add/Edit Product Page -->
+        <section id="page-add-product" class="admin-page">
+          <div class="form-card">
+            <h3 id="formTitle"><i class="fas fa-plus-circle"></i> Tambah Produk Baru</h3>
+            <form id="productForm">
+              <input type="hidden" id="editIndex">
+              <div class="form-group">
+                <label for="appName">Nama Aplikasi</label>
+                <input type="text" id="appName" placeholder="Contoh: Spotify Premium" required>
+              </div>
+              <div class="form-group">
+                <label for="appDesc">Deskripsi</label>
+                <textarea id="appDesc" placeholder="Deskripsi lengkap produk..." rows="4" required></textarea>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="appStock">Stok</label>
+                  <input type="number" id="appStock" min="0" placeholder="0" required>
+                </div>
+                <div class="form-group">
+                  <label for="appPrice">Harga (Rp)</label>
+                  <input type="number" id="appPrice" min="0" placeholder="0" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="appImg">Link Gambar</label>
+                <input type="url" id="appImg" placeholder="https://example.com/image.png" required>
+              </div>
+              <div class="form-group" id="imagePreviewGroup" style="display:none;">
+                <label>Preview</label>
+                <img id="imagePreview" class="image-preview" src="" alt="Preview">
+              </div>
+              <div class="form-actions">
+                <button type="button" class="btn btn-secondary" id="cancelForm">Batal</button>
+                <button type="submit" class="btn btn-primary">
+                  <i class="fas fa-save"></i> <span id="submitBtnText">Simpan Produk</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Confirm Dialog -->
+  <div id="confirmDialog" class="modal modal-confirm" role="alertdialog" aria-hidden="true">
+    <div class="modal-content modal-sm">
+      <div class="confirm-icon"><i class="fas fa-triangle-exclamation"></i></div>
+      <h3 id="confirmTitle">Konfirmasi</h3>
+      <p id="confirmMessage"></p>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="confirmCancel">Batal</button>
+        <button type="button" class="btn btn-danger" id="confirmOk">Ya, Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
