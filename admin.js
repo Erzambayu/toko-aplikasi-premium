@@ -10,6 +10,17 @@ const database = firebase.database();
 // --- Constants ---
 const ADMIN_EMAIL = 'erzambayu@gmail.com';
 
+// Self-contained fallback image (dark placeholder with icon) — no external dependency
+const FALLBACK_IMG = 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">' +
+  '<rect width="300" height="300" fill="#1a1a2e"/>' +
+  '<g fill="none" stroke="#c9a227" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">' +
+  '<rect x="95" y="95" width="110" height="110" rx="12"/>' +
+  '<circle cx="125" cy="125" r="8"/>' +
+  '<path d="M95 185 L135 145 L160 170 L180 150 L205 175"/>' +
+  '</g></svg>'
+);
+
 // --- State ---
 let products = [];
 let filteredProducts = [];
@@ -252,7 +263,7 @@ function renderRecentProducts() {
 
   container.innerHTML = recent.map(p => `
     <div class="recent-product-item">
-      <img src="${sanitizeHTML(p.img || p.image || '')}" alt="${sanitizeHTML(p.name)}" onerror="this.src='https://via.placeholder.com/44'">
+      <img src="${sanitizeHTML(p.img || p.image || '')}" alt="${sanitizeHTML(p.name)}" onerror="this.src=FALLBACK_IMG">
       <div class="recent-product-info">
         <h4>${sanitizeHTML(p.name)}</h4>
         <span>Stok: ${p.stock || 0}</span>
@@ -291,7 +302,7 @@ function renderProductsTable(list) {
 
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td><img class="table-product-img" src="${sanitizeHTML(p.img || p.image || '')}" alt="${sanitizeHTML(p.name)}" onerror="this.src='https://via.placeholder.com/40'"></td>
+      <td><img class="table-product-img" src="${sanitizeHTML(p.img || p.image || '')}" alt="${sanitizeHTML(p.name)}" onerror="this.src=FALLBACK_IMG"></td>
       <td><span class="table-product-name">${sanitizeHTML(p.name)}</span></td>
       <td><span class="table-price">${formatPrice(p.price || 0)}</span></td>
       <td><span class="table-stock ${stockClass}">${stock}</span></td>

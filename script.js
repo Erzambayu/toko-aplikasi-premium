@@ -20,6 +20,17 @@ let currentProduct = null;
 let purchaseHistory = [];
 const waNumber = '6285156545003';
 
+// Self-contained fallback image (dark placeholder with icon) — no external dependency
+const FALLBACK_IMG = 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">' +
+  '<rect width="300" height="300" fill="#1a1a2e"/>' +
+  '<g fill="none" stroke="#c9a227" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">' +
+  '<rect x="95" y="95" width="110" height="110" rx="12"/>' +
+  '<circle cx="125" cy="125" r="8"/>' +
+  '<path d="M95 185 L135 145 L160 170 L180 150 L205 175"/>' +
+  '</g></svg>'
+);
+
 // Load purchase history
 try {
   purchaseHistory = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
@@ -302,7 +313,7 @@ function displayProducts(list) {
     const name = sanitizeHTML(product.name || '');
     const rawDesc = product.desc || product.description || '';
     const formattedDesc = formatDescription(rawDesc);
-    const img = sanitizeHTML(product.img || product.image || 'https://via.placeholder.com/300');
+    const img = sanitizeHTML(product.img || product.image || FALLBACK_IMG);
     const stock = parseInt(product.stock) || 0;
     const price = Number(product.price) || 0;
 
@@ -316,7 +327,7 @@ function displayProducts(list) {
 
     card.innerHTML = `
       <div class="card-header">
-        <img src="${img}" alt="${name}" loading="lazy" onerror="this.src='https://via.placeholder.com/300'">
+        <img src="${img}" alt="${name}" loading="lazy" onerror="this.src=FALLBACK_IMG">
       </div>
       <div class="card-content">
         <h3>${name}</h3>
@@ -456,8 +467,8 @@ function showCheckoutModal(productId) {
   document.getElementById('checkout-product-stock').textContent = `Stok: ${product.stock}`;
 
   const img = document.getElementById('checkout-product-image');
-  img.src = product.img || product.image || 'https://via.placeholder.com/300';
-  img.onerror = function () { this.src = 'https://via.placeholder.com/300'; };
+  img.onerror = function () { this.src = FALLBACK_IMG; };
+  img.src = product.img || product.image || FALLBACK_IMG;
 
   document.getElementById('quantity').value = 1;
   document.getElementById('notes').value = '';
